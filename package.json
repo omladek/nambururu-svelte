@@ -1,0 +1,81 @@
+{
+  "name": "nambururu-svelte",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "engines": {
+    "node": "18.16.0",
+    "yarn": "1.22.19"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "check": "svelte-check --tsconfig ./tsconfig.json",
+    "format": "concurrently \"yarn format:prettier\" \"yarn lint:fix\"",
+    "format:prettier": "prettier --write \"**/*.{js,ts,svelte}\"",
+    "lint": "concurrently \"yarn lint:js\" \"yarn lint:styles\"",
+    "lint:fix": "yarn lint:js --fix",
+    "lint:js": "eslint --ext=js,ts,svelte src",
+    "lint:styles": "stylelint \"src/**/*.{css,svelte}\"",
+    "prepare": "husky install",
+    "test": "vitest",
+    "coverage": "vitest run --coverage",
+    "generate-pwa-assets": "pwa-assets-generator"
+  },
+  "devDependencies": {
+    "@sveltejs/vite-plugin-svelte": "2.0.4",
+    "@tanstack/svelte-query": "4.29.19",
+    "@tsconfig/svelte": "4.0.1",
+    "@types/lodash.debounce": "4.0.7",
+    "@typescript-eslint/eslint-plugin": "5.60.1",
+    "@typescript-eslint/parser": "5.60.1",
+    "@vitest/coverage-v8": "0.32.4",
+    "concurrently": "8.2.0",
+    "eslint": "8.44.0",
+    "eslint-config-prettier": "8.8.0",
+    "eslint-plugin-import": "2.27.5",
+    "eslint-plugin-prettier": "4.2.1",
+    "eslint-plugin-sonarjs": "0.19.0",
+    "eslint-plugin-sort-destructure-keys": "1.5.0",
+    "eslint-plugin-svelte": "2.32.2",
+    "history": "5.3.0",
+    "husky": "8.0.3",
+    "lint-staged": "13.2.3",
+    "lodash.debounce": "4.0.8",
+    "postcss-html": "1.5.0",
+    "prettier": "2.8.8",
+    "prettier-plugin-svelte": "2.10.1",
+    "stylelint": "15.9.0",
+    "stylelint-config-html": "1.1.0",
+    "stylelint-config-prettier": "9.0.5",
+    "stylelint-config-recommended": "12.0.0",
+    "stylelint-config-svelte-roboleary": "0.4.0",
+    "stylelint-order": "6.0.3",
+    "svelte": "3.58.0",
+    "svelte-check": "3.3.1",
+    "svelte-eslint-parser": "0.32.0",
+    "svelte-intersection-observer": "0.10.0",
+    "svelte-spa-router": "3.3.0",
+    "tslib": "2.5.0",
+    "typescript": "5.0.2",
+    "vite": "4.3.9",
+    "vite-plugin-eslint": "1.8.1",
+    "vite-plugin-pwa": "0.16.4",
+    "vite-plugin-stylelint": "4.3.0",
+    "vitest": "0.32.4"
+  },
+  "dependencies": {
+    "@total-typescript/ts-reset": "0.4.2"
+  },
+  "lint-staged": {
+    "*.{ts,js,svelte}": [
+      "yarn format",
+      "yarn lint:js"
+    ],
+    "*.{css,svelte}": [
+      "yarn format",
+      "yarn lint:styles"
+    ]
+  }
+}
