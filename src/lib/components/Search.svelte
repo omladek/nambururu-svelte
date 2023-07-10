@@ -55,15 +55,18 @@
     search = nextSubredit
   }
 
-  const handleInput = debounce<FormEventHandler<HTMLInputElement>>((event) => {
-    const value = getSanitizedString(event.currentTarget.value.trim())
+  const handleInput = debounce(
+    (event: Event & { target: HTMLInputElement }) => {
+      const value = getSanitizedString(event.target.value.trim())
 
-    if (value.length < 3) {
-      return
-    }
+      if (value.length < 3) {
+        return
+      }
 
-    subreddit = value
-  }, 300)
+      subreddit = value
+    },
+    300,
+  )
 </script>
 
 <form action="" class="search" method="GET" on:submit="{handleSearchSubmit}">

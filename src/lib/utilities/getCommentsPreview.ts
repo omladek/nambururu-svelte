@@ -13,7 +13,7 @@ export default async function getCommentsPreview(
       `https://www.reddit.com/comments/${id}/.json?limit=2&sort=best&json_raw=1`,
       { signal },
     ).then(async (response) => {
-      const comments: CommentsResult[] = await response.json()
+      const comments = (await response.json()) as CommentsResult[]
 
       return { comments, voteResult: 'best' }
     }),
@@ -21,7 +21,7 @@ export default async function getCommentsPreview(
       `https://www.reddit.com/comments/${id}/.json?limit=2&sort=controversial&json_raw=1`,
       { signal },
     ).then(async (response) => {
-      const comments: CommentsResult[] = await response.json()
+      const comments = (await response.json()) as CommentsResult[]
 
       return { comments, voteResult: 'controversial' }
     }),

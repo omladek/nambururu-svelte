@@ -1,5 +1,5 @@
 import { expect, describe, it } from 'vitest'
-import { RedditHostedImage } from '../../types/reddit-api/ThreadsResult.type'
+import type { RedditHostedImage } from '../../types/reddit-api/ThreadsResult.type'
 import getImageByContainerWidth from '../getImageByContainerWidth'
 
 describe('getImageByContainerWidth', () => {
